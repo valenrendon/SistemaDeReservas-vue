@@ -1,5 +1,21 @@
-# Vue 3 + Vite
+#  Sistema de Reservas Universitarias (Vue + Vite)
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Este proyecto es una aplicación web desarrollada con **Vue.js** y **Vite**, que permite visualizar y reservar espacios universitarios (aulas, laboratorios y canchas).  
+Fue creado como parte de la entrega del módulo de *Desarrollo Web Frontend*.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+
+## Características principales
+
+✅ Interfaz moderna desarrollada con **Vue 3** y **Vite**  
+✅ Visualización de espacios con información detallada (nombre, tipo, capacidad y disponibilidad)  
+✅ **Filtro por tipo de espacio** (Aula, Laboratorio o Cancha)  
+✅ **Notificación visual al confirmar reserva** (alerta en pantalla)  
+✅ Código modular y fácil de mantener  
+
+
+
+## Instalación y ejecución local
+
+1. Clonar el repositorio:
+   ```bash
+   git clone https://github.com/valenrendon/SistemaDeReservas-vue.git
