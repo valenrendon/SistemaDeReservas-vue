@@ -10,6 +10,14 @@
       </label>
     </div>
 
+    <!-- Selección de fecha/hora para la reserva -->
+    <div class="filtros">
+      <label>
+        Fecha y hora de reserva:
+        <input type="datetime-local" v-model="fechaSeleccionada" />
+      </label>
+    </div>
+
     <div class="espacios">
       <div v-for="espacio in filtrados" :key="espacio.id" class="card">
         <h3>{{ espacio.name }}</h3>
@@ -34,16 +42,20 @@
 <script setup>
 import { ref, computed } from 'vue'
 
+// Datos de los espacios
 const espacios = ref([
   { id: 1, name: 'Aula 101', type: 'Aula', capacity: 40, available: true },
   { id: 2, name: 'Laboratorio 2', type: 'Laboratorio', capacity: 25, available: false },
   { id: 3, name: 'Cancha Principal', type: 'Cancha', capacity: 80, available: true }
 ])
 
+// Filtros y estado
 const filtro = ref('')
 const soloDisponibles = ref(false)
 const historial = ref([])
+const fechaSeleccionada = ref('')
 
+// Computed para filtrar espacios
 const filtrados = computed(() =>
   espacios.value.filter(e => {
     const porTipo = e.type.toLowerCase().includes(filtro.value.toLowerCase())
@@ -52,12 +64,33 @@ const filtrados = computed(() =>
   })
 )
 
+// Función de reserva con validación de fecha y alerta sonora
 function reservar(espacio) {
+  if (!espacio.available) {
+    alert('❌ Este espacio no está disponible para reservar.')
+    return
+  }
+
+  const ahora = new Date()
+  const fecha = new Date(fechaSeleccionada.value)
+  if (!fechaSeleccionada.value || fecha < ahora) {
+    alert('❌ No se puede reservar para una fecha pasada.')
+    return
+  }
+
   historial.value.unshift({
     ...espacio,
-    date: new Date().toISOString()
+    date: fecha.toISOString()
   })
+
+  espacio.available = false
+
+  // Notificación visual
   alert(`✅ Reserva confirmada para ${espacio.name}`)
+
+  // Notificación sonora
+  const sonido = new Audio('https://www.soundjay.com/buttons/sounds/button-3.mp3')
+  sonido.play()
 }
 </script>
 
@@ -103,6 +136,7 @@ button {
 button:hover {
   background: #0056b3;
 }
+
 .historial {
   margin-top: 2rem;
 }
