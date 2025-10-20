@@ -8,10 +8,10 @@ Fue creado como parte de la entrega del módulo de *Desarrollo Web Frontend*.
 
 ✅ Interfaz moderna desarrollada con **Vue 3** y **Vite**  
 ✅ Visualización de espacios con información detallada (nombre, tipo, capacidad y disponibilidad)  
-✅ **Filtro por tipo de espacio** (Aula, Laboratorio o Cancha)  
-✅ **Notificación visual al confirmar reserva** (alerta en pantalla)  
+✅ Filtro por tipo de espacio (Aula, Laboratorio o Cancha)  
+✅ Notificación visual al confirmar reserva (alerta en pantalla)  
 ✅ Código modular y fácil de mantener  
-
+El archivo que contiene los requisitos ademas tiene el ddiagrama uml
 
 
 ## Instalación y ejecución local
